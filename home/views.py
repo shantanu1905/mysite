@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 from datetime import datetime
-from home.models import Contact
+from home.models import Contact, Project
 from django.contrib import messages
 from django.contrib.auth.models import auth 
 from django.contrib.auth.models import User 
@@ -37,12 +37,11 @@ def index(request):
             [email])
         email.attach_alternative(html_content,"text/html")
         email.send()
-        
-        
 
-
-
-   
+    else:
+        project = Project.objects.all()
+        return render(request,"index.html", {'project':project})
+    
     return render(request,"index.html")
 
 def contact(request):

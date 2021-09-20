@@ -71,10 +71,19 @@
   padding-left: 80px;
 }
 
-.about {  
+.about  {  
   text-align: center;
 }
 .about h3{
+  font-family: 'Sofia';
+  font-size: 50px;
+  color: rgb(63, 63, 63);
+}
+
+.project{ text-align: center;
+
+}
+.project h3{  
   font-family: 'Sofia';
   font-size: 50px;
   color: rgb(63, 63, 63);
@@ -189,9 +198,40 @@
   </div>
 
 </section>
+<!-- Page Content -->
+
+
+<!-- Project Content --> 
+
+<div class="project">
+  <h3 class="display-4"> My Projects</h3>
+  <div class="container">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        {% if pro  %}
+        {% for pro in Project %}
+        <h5 class="card-title">{{pro.pname}}</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+        {% endfor %}
+        {% endif %}
+    
+  </div>
+
+<hr style="height:1px; width:50% ;border-width:0; color:gray; background-color:gray">
+</div>
+</div>
 
 
 
+{% if project %}
+
+{{project.pname}}
+
+{% endif %}
 
 
   

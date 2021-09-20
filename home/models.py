@@ -16,6 +16,9 @@ class Project(models.Model):
     enddate=models.DateField()
     description=models.TextField(max_length=500)
     url=models.TextField(max_length=100)
+
+    def __str__(self):
+        return self.pname
     
     
 
