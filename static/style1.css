@@ -12,3 +12,13 @@
   right: 10px;
 }
 
+
+
+.about {  
+  text-align: center;
+}
+.about h3{
+  font-family: 'Sofia';
+  font-size: 45px;
+  color: rgb(228, 19, 60);
+}

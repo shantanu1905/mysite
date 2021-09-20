@@ -18,6 +18,13 @@ from django.urls import path
 from home import views
 from todo import views as tod # importing views.py  from todo app , we tod to void error as we are importing views from home and todo apps
 
+
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 admin.site.site_header = "Acer Admin"
 admin.site.site_title = "Acer Admin Portal"
 admin.site.index_title = "Welcome to Acer Portal"
@@ -31,7 +38,6 @@ urlpatterns = [
     path('logout', views.handleLogout, name='handleLogout'),
     path('tasks', tod.taskList, name='tasks'),  #todo list path
     path('passgen', tod.passgen, name='passgen'),  
-    path('geoshare', tod.geoshare, name='geoshare'),
     path('delete/<int:Taskdata_id>/' , tod.delete, name='delete'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('writes', views.writes, name='writes'),
@@ -40,4 +46,4 @@ urlpatterns = [
     path('admin/', admin.site.urls)
     
     
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
