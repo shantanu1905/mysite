@@ -1,0 +1,15 @@
+
+.icon-bar a {
+    width: 20%;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 36px;
+  }
+.content {
+    font-family: font-weight-light;
+}
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.bg-lightgray
+{
+    background-color:rgb(245, 241, 241);
+}
