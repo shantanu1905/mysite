@@ -16,13 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home import views
-from todo import views as tod # importing views.py  from todo app , we tod to void error as we are importing views from home and todo apps
 
-
-
-
-from django.conf import settings
-from django.conf.urls.static import static
 
 
 admin.site.site_header = "Acer Admin"
@@ -36,9 +30,6 @@ urlpatterns = [
     path('signup', views.handleSignup, name='handleSignup'),
     path('login', views.handleLogin, name='handleLogin'),
     path('logout', views.handleLogout, name='handleLogout'),
-    path('tasks', tod.taskList, name='tasks'),  #todo list path
-    path('passgen', tod.passgen, name='passgen'),  
-    path('delete/<int:Taskdata_id>/' , tod.delete, name='delete'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('writes', views.writes, name='writes'),
     
@@ -46,4 +37,4 @@ urlpatterns = [
     path('admin/', admin.site.urls)
     
     
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
