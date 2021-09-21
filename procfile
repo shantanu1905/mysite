@@ -1,1 +1,1 @@
-web: gunicorn acer.wsgi --log-file -
+web: gunicorn acer.wsgi 
