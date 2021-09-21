@@ -9,9 +9,21 @@ from home.models import Contact, Project
 from django.contrib import messages
 from django.contrib.auth.models import auth 
 from django.contrib.auth.models import User 
+from django.views.generic.list import ListView
 
 # Create your views here.
+
+def project(request):
+    pro = Project.objects.all()
+    context = {'pro':pro}
+
+    return render(request,"project.html", context)
+
 def index(request):
+    # below two lines will show to project containts
+    pro = Project.objects.all()
+    context = {'pro':pro}
+    
     if request.method == "POST":
         name=request.POST.get('name')
         email=request.POST.get('email')
@@ -38,14 +50,12 @@ def index(request):
         email.attach_alternative(html_content,"text/html")
         email.send()
 
-    else:
-        project = Project.objects.all()
-        return render(request,"index.html", {'project':project})
+
     
-    return render(request,"index.html")
+    return render(request,"index.html", context)
 
 def contact(request):
-    if request.method == "POST":
+   if request.method == "POST":
         name=request.POST.get('name')
         email=request.POST.get('email')
         msg=request.POST.get('msg')
@@ -53,16 +63,24 @@ def contact(request):
         contact.save()
         messages.success(request, 'your message is being send')
 
-        #send email to user
-        subject = 'Team Ghostpy <no-reply@shantanunimkar19@gmail.com>'
-        message = 'Hi {name}, thank you for registering in geeksforgeeks.'
-        email_from = settings.EMAIL_HOST_USER
-        recipient_list = [email]
-        send_mail( subject, message, email_from, recipient_list )
 
-    
+         #email section
+        subject = 'Shantanu@<no-reply>'
+        html_content =render_to_string("reply.html",{'title':'test mail','name':name})
+        text_content =strip_tags(html_content)
 
-    return render(request,"contact.html")
+        email=EmailMultiAlternatives(
+            #subject
+            "Shantanu@<no-reply>",
+            #content
+            text_content,
+            #from email
+            "shantanunimkar19@gmail.com",
+            #rec_list
+            [email])
+        email.attach_alternative(html_content,"text/html")
+        email.send()
+        return render(request,".html")
 
 
 def handleSignup(request):
