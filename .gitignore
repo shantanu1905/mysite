@@ -1,4 +1,6 @@
 # created by virtualenv automatically
 Scripts
 Lib
+.env
+pyvenv.cfg
 
