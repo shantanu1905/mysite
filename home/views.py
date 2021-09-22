@@ -14,6 +14,12 @@ from django.views.generic.list import ListView
 # Create your views here.
 
 
+def project(request):
+    pro = Project.objects.all()
+    context = {'pro':pro}
+
+    return render(request,"project.html", context)
+
 def index(request):
     # below two lines will show to project containts
     pro = Project.objects.all()
