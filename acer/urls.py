@@ -26,7 +26,6 @@ admin.site.index_title = "Welcome to Acer Portal"
 urlpatterns = [
     #path('', views.taskList, name='todo'),
     path('', views.index, name='home'),
-    path('project', views.project, name='home'),
    
 
     path('signup', views.handleSignup, name='handleSignup'),

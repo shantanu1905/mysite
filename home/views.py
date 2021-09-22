@@ -13,11 +13,6 @@ from django.views.generic.list import ListView
 
 # Create your views here.
 
-def project(request):
-    pro = Project.objects.all()
-    context = {'pro':pro}
-
-    return render(request,"project.html", context)
 
 def index(request):
     # below two lines will show to project containts
@@ -52,7 +47,7 @@ def index(request):
 
 
     
-    return render(request,"index.html", context)
+    return render(request,"home.html", context)
 
 def contact(request):
    if request.method == "POST":
