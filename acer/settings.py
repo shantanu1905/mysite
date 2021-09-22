@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production se sdcret!
 
-SECRET_KEY = config('secret_key')
+SECRET_KEY = '7jr&k8vx#u!%l(+$5=@!o6@q!0jvm47m3!djh+w9b5kj2pmgs*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
